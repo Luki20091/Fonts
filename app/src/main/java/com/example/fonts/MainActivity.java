@@ -21,13 +21,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Initialize views
         sizeLabel = findViewById(R.id.sizeLabel);
         quoteText = findViewById(R.id.quoteText);
         fontSizeSeekBar = findViewById(R.id.fontSizeSeekBar);
         changeTextButton = findViewById(R.id.changeTextButton);
 
-        // Handle SeekBar changes
         fontSizeSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -37,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-                // No action needed
+                
             }
 
             @Override
@@ -46,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // Handle button click
         changeTextButton.setOnClickListener(v -> {
             currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
             quoteText.setText(quotes[currentQuoteIndex]);
