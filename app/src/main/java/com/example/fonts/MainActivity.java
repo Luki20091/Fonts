@@ -1,6 +1,7 @@
 package com.example.fonts;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         fontSizeSeekBar = findViewById(R.id.fontSizeSeekBar);
         changeTextButton = findViewById(R.id.changeTextButton);
 
+        // SeekBar changes
         fontSizeSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -44,9 +46,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        changeTextButton.setOnClickListener(v -> {
-            currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
-            quoteText.setText(quotes[currentQuoteIndex]);
+        // Button click
+        changeTextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
+                quoteText.setText(quotes[currentQuoteIndex]);
+            }
         });
     }
 }
